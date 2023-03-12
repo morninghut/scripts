@@ -1,4 +1,5 @@
 #!/bin/bash
+# check which docker is using GPU
 nvidia-smi | grep python | awk '$4 {print $5}' | awk ' !x[$0]++' >> /tmp/t0.txt
 for line in `cat /tmp/t0.txt`
 do
